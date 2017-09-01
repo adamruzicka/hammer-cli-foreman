@@ -51,5 +51,7 @@ module HammerCLIForeman
 
       build_options
     end
+
+    autoload_subcommands
   end
 end
