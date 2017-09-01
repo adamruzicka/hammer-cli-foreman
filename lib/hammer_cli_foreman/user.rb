@@ -1,5 +1,5 @@
 module HammerCLIForeman
-
+  require 'hammer_cli_foreman/ssh_keys'
   class User < HammerCLIForeman::Command
 
     resource :users
@@ -135,6 +135,9 @@ module HammerCLIForeman
     end
 
     HammerCLIForeman::AssociatingCommands::Role.extend_command(self)
+    lazy_subcommand('ssh-keys', _("Manipulate smart class parameters."),
+      'HammerCLIForeman::SSHKeys', 'hammer_cli_foreman/ssh_keys'
+    )
 
     autoload_subcommands
   end
