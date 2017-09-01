@@ -297,4 +297,15 @@ module ResourceMocks
       :puppetclasses => [ { :name => "My puppetclass" } ]
     }])
   end
+
+  def self.ssh_keys
+    ssh_key = {
+      "name" => "Foreman's SSH key",
+      "id" => 13,
+      "user_id" => 1,
+      "fingerprint" => "ssh-rsa fingerprint",
+      "length" => 10
+    }
+    ResourceMocks.mock_action_call(:ssh_keys, :index, ["results" => ssh_key])
+  end
 end
